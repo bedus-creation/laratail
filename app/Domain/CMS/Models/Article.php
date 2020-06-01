@@ -9,4 +9,6 @@ use Aammui\LaravelTaggable\Traits\HasTag;
 class Article extends Model
 {
     use HasCategory, HasTag;
+
+    protected $fillable = ['title', 'description', 'slug', 'status', 'type'];
 }
