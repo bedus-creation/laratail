@@ -35,4 +35,4 @@
 ```
 git pull https://github.com/bedus-creation/laratail.git master
 ```
-* If there are conflicts, resolve them. For more information and Commit the merge.
+* If there are conflicts, resolve them and Commit the merge.
