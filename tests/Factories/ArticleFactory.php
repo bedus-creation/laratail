@@ -5,6 +5,7 @@ namespace Tests\Factories;
 use App\Domain\CMS\Models\Article;
 use Christophrumpel\LaravelFactoriesReloaded\BaseFactory;
 use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
 class ArticleFactory extends BaseFactory
 {
@@ -22,8 +23,10 @@ class ArticleFactory extends BaseFactory
 
     public function getDefaults(Faker $faker): array
     {
+        $title = $faker->sentence;
         return [
-            'title' => $faker->sentence,
+            'title' => $title,
+            'slug' => Str::slug($title),
             'description' => $faker->paragraph(4),
             'type' => $faker->randomElement(['Article']),
             'status' => $faker->randomElement(['Published', 'Draft'])

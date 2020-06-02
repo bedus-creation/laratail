@@ -11,4 +11,9 @@ class Article extends Model
     use HasCategory, HasTag;
 
     protected $fillable = ['title', 'description', 'slug', 'status', 'type'];
+
+    public function link()
+    {
+        return $this->slug;
+    }
 }
