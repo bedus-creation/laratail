@@ -25,6 +25,13 @@ class ArticleTest extends TestCase
     }
 
     /** @test */
+    public function article_route_works_fines()
+    {
+        $this->get(route('articles.index'))
+            ->assertStatus(200);
+    }
+
+    /** @test */
     public function admin_can_create_article()
     {
         $data = ArticleFactory::new()->getFormData();

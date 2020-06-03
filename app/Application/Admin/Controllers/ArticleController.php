@@ -16,6 +16,11 @@ class ArticleController extends Controller
         $this->repository = $article;
     }
 
+    public function index()
+    {
+        return view('admin.articles.index');
+    }
+
     public function store(ArticleStoreRequest $articleStoreRequest)
     {
         $this->repository->create($articleStoreRequest->all());
