@@ -6,15 +6,21 @@
     </div>
     <div x-data="{show: @php echo  request()->url()==url('admin')  ? 'true':'false' @endphp}"
         class="flex mx-4 px-3 rounded py-3 mt-6 mb-3" :class="{'bg-red-500 hover:bg-red-500': show}">
-        <a href="#" class="flex">
+        <a href="{{url('admin')}}" class="flex">
             <i class="material-icons fill-current text-gray-100">dashboard</i>
             <div class="menu-text text-gray-100 ml-4">Dashboard</div>
         </a>
     </div>
     <div class="flex mx-4 mb-3">
-        <div href="#"
-            x-data="{show: @php echo  \Str::contains(request()->url(), route('articles.index'))  ? 'true':'false' @endphp}"
-            class="w-full flex flex-col cursor-pointer" @click="show=!show">
+        <div href="#" x-data="{show: @php echo isCmsLink();  @endphp}" class="w-full flex flex-col cursor-pointer"
+            @click="show=!show">
+            @php
+            function isCmsLink(){
+            $isCmsLink = \Str::contains(request()->url(),
+            [route('articles.index'),route('categories.index'),route('tags.index')]) ;
+            return $isCmsLink ? 'true':'false';
+            }
+            @endphp
             <div class="w-full flex justify-between px-3 hover:bg-gray-700 rounded py-3"
                 :class="{'bg-red-500 hover:bg-red-500': show}">
                 <div class="flex">
@@ -31,20 +37,32 @@
             <div x-show="show" class="transition ease-in duration-700 mt-3
                 bg-gray-800">
                 <a href="{{route('articles.index')}}">
-                    <div class="w-full flex px-3 hover:bg-gray-700 rounded py-3 mb-3"
-                        :class="{'bg-gray-700':@php echo \Str::contains(request()->url(), route('articles.index')) ? 'true':'false' @endphp}">
+                    <div class="w-full flex px-3 hover:bg-gray-700 rounded py-3 mb-3" :class="{'bg-gray-700': @php echo request()->url()==
+            route('articles.index') ? 'true':'false' ; @endphp}">
                         <span class="w-6 text-center text-xs text-gray-100">P</span>
                         <div class="relative text-xs font-light menu-text text-gray-100 ml-4">
                             Posts
                         </div>
                     </div>
                 </a>
-                <div class="w-full flex px-3 hover:bg-gray-700 rounded py-3 mb-3">
-                    <span class="w-6 text-center text-xs text-gray-100">PS</span>
-                    <div class="relative text-xs font-light menu-text text-gray-100 ml-4">
-                        Page SEO
+                <a href="{{route('categories.index')}}">
+                    <div class="w-full flex px-3 hover:bg-gray-700 rounded py-3 mb-3" :class="{'bg-gray-700': @php echo \Str::contains(request()->url(),
+            route('categories.index')) ? 'true':'false' ; @endphp}">
+                        <span class="w-6 text-center text-xs text-gray-100">Ca</span>
+                        <div class="relative text-xs font-light menu-text text-gray-100 ml-4">
+                            Categories
+                        </div>
                     </div>
-                </div>
+                </a>
+                <a href="{{route('tags.index')}}">
+                    <div class="w-full flex px-3 hover:bg-gray-700 rounded py-3 mb-3"
+                        :class="{'bg-gray-700': @php echo \Str::contains(request()->url(),route('tags.index')) ? 'true':'false' ; @endphp}">
+                        <span class="w-6 text-center text-xs text-gray-100">T</span>
+                        <div class="relative text-xs font-light menu-text text-gray-100 ml-4">
+                            Tags
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

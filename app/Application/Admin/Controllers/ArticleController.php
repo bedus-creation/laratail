@@ -35,4 +35,18 @@ class ArticleController extends Controller
             ->addMedia(request()->image);
         return redirect()->back()->with('success', 'Article has been created.');
     }
+
+    /**
+     * Delete article resource
+     *
+     * @param Request $request
+     * @param int $id
+     * @return void
+     */
+    public function destroy(Request $request, $id)
+    {
+        $article = $this->repository->findOrFail($id);
+        $article->delete();
+        return redirect()->back()->with('success', 'Article has been deleted.');
+    }
 }

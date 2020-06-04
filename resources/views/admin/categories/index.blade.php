@@ -23,15 +23,15 @@
 <div class="container mx-auto my-10 px-6 md:px-12">
     <div class="flex justify-between items-center">
         <div class="flex-1">
-            <h3 class="text-gray-700 text-3xl font-semibold mb-2"></h3>
+            <h3 class="text-gray-700 text-3xl font-semibold mb-2">Categories</h3>
             <p class="font-light">
-                All the are liststed here. Edit <b>ArticleController</b> to customize further logics.
+                All the Categories are liststed here. Edit <b>CategoriesController</b> to customize further logics.
             </p>
         </div>
         <div class="w-48 text-right">
-            <a href="{{route('articles.create')}}"
+            <a href="{{route('categories.create')}}"
                 class="bg-green-600 text-gray-200 rounded hover:bg-green-500 px-6 py-3 focus:outline-none ">Add
-                Article</a>
+                Category</a>
         </div>
     </div>
     <div x-data="{ showDeleteModal: false }" class="bg-white mt-16 px-6 py-12 rounded-lg shadow-lg">
@@ -39,15 +39,15 @@
         <table id="example" class="border w-full display">
             <thead>
                 <tr>
-                    <th>Title</th>
+                    <th>Category</th>
                     <th>Created at</th>
                     <th class="text-right">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($articles as $item)
+                @foreach($data as $item)
                 <tr>
-                    <td>{{$item->title}}</td>
+                    <td>{{$item->name}}</td>
                     <td class="text-center">{{$item->created_at->format('Y-m-d')}}</td>
                     <td class="flex justify-end">
                         <a href="#"
@@ -57,7 +57,7 @@
                             </span>
                         </a>
                         <a href="#"
-                            x-on:click.prevent="showDeleteModal=!showDeleteModal; setModalData('{{route('articles.destroy', $item->id)}}');"
+                            x-on:click.prevent="showDeleteModal=!showDeleteModal;setModalData('{{route('categories.destroy', $item->id)}}')"
                             class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-gray-200 rounded flex justify-center items-center h-8 w-8 mr-1">
                             <span class="text-sm material-icons">
                                 delete
@@ -69,9 +69,9 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Start date</th>
+                    <th>Category</th>
+                    <th>Created at</th>
+                    <th class="text-right">Action</th>
                 </tr>
             </tfoot>
         </table>
