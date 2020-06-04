@@ -18,12 +18,21 @@ class ArticleController extends Controller
 
     public function index()
     {
-        return view('admin.articles.index');
+        $articles = $this->repository->all();
+        return view('admin.articles.index', compact('articles'));
+    }
+
+    public function create(Request $request)
+    {
+        return view('admin.articles.create');
     }
 
     public function store(ArticleStoreRequest $articleStoreRequest)
     {
-        $this->repository->create($articleStoreRequest->all());
+        $article = $this->repository->create($articleStoreRequest->all());
+        $article->toCollection('cover')
+            ->toDisk('public')
+            ->addMedia(request()->image);
         return redirect()->back()->with('success', 'Article has been created.');
     }
 }

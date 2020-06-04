@@ -4,8 +4,67 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f826d3a282feec651b03d9b9677c38b",
+    "content-hash": "982f10e2e7c5b2be138da28696224c52",
     "packages": [
+        {
+            "name": "aammui/laravel-media",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bedus-creation/laravel-media.git",
+                "reference": "686dcab75e2b068e7ac5ca33565cd4e3f39a9fe4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bedus-creation/laravel-media/zipball/686dcab75e2b068e7ac5ca33565cd4e3f39a9fe4",
+                "reference": "686dcab75e2b068e7ac5ca33565cd4e3f39a9fe4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^5.8|^6.0|^7.0",
+                "illuminate/http": "^5.8|^6.0|^7.0",
+                "illuminate/support": "^5.8|^6.0|^7.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "barryvdh/laravel-debugbar": "^3.1",
+                "orchestra/database": "^3.5",
+                "orchestra/testbench": "^3.5",
+                "phpunit/phpunit": "^7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Aammui\\LaravelMedia\\LaravelMediaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Aammui\\LaravelMedia\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bedram Tamang",
+                    "email": "tmgbedu@gmail.com"
+                }
+            ],
+            "description": "Laravel beautiful admin panel",
+            "homepage": "https://github.com/bedus-creation/MediaHandle",
+            "keywords": [
+                "aammui",
+                "file-uploader",
+                "media",
+                "media-uploader"
+            ],
+            "time": "2020-02-24T16:40:07+00:00"
+        },
         {
             "name": "aammui/laravel-taggable",
             "version": "0.4.4",

@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tailwind Admin Panel</title>
+    @yield('css')
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Roboto@100;300;500" rel="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link rel="stylesheet" href="/dist/css/app.css">
 </head>
 <style>
     @media screen and (min-width:991px) {
@@ -77,17 +79,21 @@
         }
     }
 </style>
-@yield('css')
 
 <body style="font-family:Roboto">
-    <div id="app" class="relative h-screen">
+    <div class="relative h-screen">
+        {{-- <vue-toastify :light-theme="true"></vue-toastify> --}}
         @include('theme.laratail.components.sidebar')
         <div class="main-content min-h-screen bg-gray-300 w-full md:w-4/5 reltive float-right"
             :class="{'bg-gray-900 bg-opacity-75':nav}">
             @include('theme.laratail.components.navbar')
-            @yield('content')
+            <div id="app">
+                @yield('content')
+            </div>
         </div>
     </div>
+    <script src="{{url(mix('/dist/js/app.js'))}}"></script>
+    @include('theme.laratail.components.flash')
     @yield('scripts')
 </body>
 

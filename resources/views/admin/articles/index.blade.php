@@ -29,7 +29,7 @@
             </p>
         </div>
         <div class="w-48 text-right">
-            <a href="http://beauty.esikai.com/admin/bookings/create"
+            <a href="{{route('articles.create')}}"
                 class="bg-green-600 text-gray-200 rounded hover:bg-green-500 px-6 py-3 focus:outline-none ">Add
                 Article</a>
         </div>
@@ -39,19 +39,16 @@
         <table id="example" class="border w-full display">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Created at</th>
                     <th class="text-right">Action</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($articles as $item)
                 <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
+                    <td>{{$item->title}}</td>
+                    <td class="text-center">{{$item->created_at->format('Y-m-d')}}</td>
                     <td class="flex justify-end">
                         <a href="#"
                             class="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-gray-200 rounded flex justify-center items-center h-8 w-8 mr-1">
@@ -67,13 +64,12 @@
                         </a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
             <tfoot>
                 <tr>
                     <th>Name</th>
                     <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
                     <th>Start date</th>
                 </tr>
             </tfoot>
