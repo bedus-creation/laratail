@@ -30,9 +30,11 @@ class ArticleController extends Controller
     public function store(ArticleStoreRequest $articleStoreRequest)
     {
         $article = $this->repository->create($articleStoreRequest->all());
-        $article->toCollection('cover')
-            ->toDisk('public')
-            ->addMedia(request()->image);
+        if ($articleStoreRequest->image) {
+            $article->toCollection('cover')
+                ->toDisk('public')
+                ->addMedia(request()->image);
+        }
         return redirect()->back()->with('success', 'Article has been created.');
     }
 

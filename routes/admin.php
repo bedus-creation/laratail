@@ -12,4 +12,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:' . Role::ADMIN . '|' 
     Route::resource('articles', ArticleController::class);
     Route::resource('categories', CategoriesController::class);
     Route::resource('tags', TagsController::class);
+    Route::resource('users', TagsController::class);
+    Route::resource('roles', TagsController::class);
 });
