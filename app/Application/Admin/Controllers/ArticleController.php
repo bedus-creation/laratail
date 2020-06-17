@@ -2,6 +2,7 @@
 
 namespace App\Application\Admin\Controllers;
 
+use Aammui\LaravelTaggable\Models\Category;
 use App\Application\Admin\Requests\ArticleStoreRequest;
 use App\Domain\CMS\Models\Article;
 use Illuminate\Http\Request;
@@ -24,7 +25,8 @@ class ArticleController extends Controller
 
     public function create(Request $request)
     {
-        return view('admin.articles.create');
+        $categories = Category::all();
+        return view('admin.articles.create', compact('categorries'));
     }
 
     public function store(ArticleStoreRequest $articleStoreRequest)

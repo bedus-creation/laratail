@@ -14,13 +14,6 @@
     <div class="flex mx-4 mb-3">
         <div href="#" x-data="{show: @php echo isCmsLink();  @endphp}" class="w-full flex flex-col cursor-pointer"
             @click="show=!show">
-            @php
-            function isCmsLink(){
-            $isCmsLink = \Str::contains(request()->url(),
-            [route('articles.index'),route('categories.index'),route('tags.index')]) ;
-            return $isCmsLink ? 'true':'false';
-            }
-            @endphp
             <div class="w-full flex justify-between px-3 hover:bg-gray-700 rounded py-3"
                 :class="{'bg-red-500 hover:bg-red-500': show}">
                 <div class="flex">
@@ -69,13 +62,6 @@
     <div class="flex mx-4 mb-3">
         <div href="#" x-data="{show: @php echo isUserLink();  @endphp}" class="w-full flex flex-col cursor-pointer"
             @click="show=!show">
-            @php
-            function isUserLink(){
-            $isUserLink = \Str::contains(request()->url(),
-            [route('users.index'),route('roles.index')]) ;
-            return $isUserLink ? 'true':'false';
-            }
-            @endphp
             <div class="w-full flex justify-between px-3 hover:bg-gray-700 rounded py-3"
                 :class="{'bg-red-500 hover:bg-red-500': show}">
                 <div class="flex">

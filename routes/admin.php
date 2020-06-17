@@ -3,7 +3,9 @@
 use App\Application\Admin\Controllers\ArticleController;
 use App\Application\Admin\Controllers\CategoriesController;
 use App\Application\Admin\Controllers\DashboardController;
+use App\Application\Admin\Controllers\RolesController;
 use App\Application\Admin\Controllers\TagsController;
+use App\Application\Admin\Controllers\UsersController;
 use App\Domain\User\Enums\Role;
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +14,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:' . Role::ADMIN . '|' 
     Route::resource('articles', ArticleController::class);
     Route::resource('categories', CategoriesController::class);
     Route::resource('tags', TagsController::class);
-    Route::resource('users', TagsController::class);
-    Route::resource('roles', TagsController::class);
+    Route::resource('users', UsersController::class)->except(['edit', 'update']);
+    Route::resource('roles', RolesController::class);
 });

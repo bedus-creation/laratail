@@ -84,7 +84,7 @@
     <div class="relative h-screen">
         {{-- <vue-toastify :light-theme="true"></vue-toastify> --}}
         @include('theme.laratail.components.sidebar')
-        <div class="main-content min-h-screen bg-gray-300 w-full md:w-4/5 reltive float-right"
+        <div class="main-content min-h-screen bg-gray-300 w-full lg:w-4/5 reltive float-right"
             :class="{'bg-gray-900 bg-opacity-75':nav}">
             @include('theme.laratail.components.navbar')
             <div id="app">
