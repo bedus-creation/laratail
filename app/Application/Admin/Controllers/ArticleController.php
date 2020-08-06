@@ -8,7 +8,6 @@ use App\Domain\CMS\Models\Article;
 use Illuminate\Http\Request;
 use Aammui\LaravelTaggable\Models\Tag;
 use App\Http\Controllers\Controller;
-use GitDown;
 
 class ArticleController extends Controller
 {
@@ -34,7 +33,6 @@ class ArticleController extends Controller
 
     public function store(ArticleStoreRequest $articleStoreRequest)
     {
-        $description = GitDown::parseAndCache($articleStoreRequest->description);
         $article = $this->repository->create($articleStoreRequest->all());
         $article->addCategory($articleStoreRequest->categories);
         $article->addTag($articleStoreRequest->tags);
