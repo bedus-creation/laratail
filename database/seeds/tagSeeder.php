@@ -3,7 +3,7 @@
 use Aammui\LaravelTaggable\Models\Tag;
 use Illuminate\Database\Seeder;
 
-class tagSeeder extends Seeder
+class TagSeeder extends Seeder
 {
     /**
      * Run the database seeds.

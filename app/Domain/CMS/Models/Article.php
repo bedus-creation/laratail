@@ -24,13 +24,4 @@ class Article extends Model
         return optional(optional($this->fromCollection('cover')->getMedia())->first())->link()
             ?? "/assets/img/logo.png";
     }
-
-    // public function catname()
-    // {
-    //     return $this->belongsTo(Category::class);
-    // }
-    // public function tagss()
-    // {
-    //     return $this->belongsTo(Tag::class);
-    // }
 }
