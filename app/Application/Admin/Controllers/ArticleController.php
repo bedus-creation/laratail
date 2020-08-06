@@ -35,7 +35,6 @@ class ArticleController extends Controller
     public function store(ArticleStoreRequest $articleStoreRequest)
     {
         $description = GitDown::parseAndCache($articleStoreRequest->description);
-        // dd($description);
         $article = $this->repository->create($articleStoreRequest->all());
         $article->addCategory($articleStoreRequest->categories);
         $article->addTag($articleStoreRequest->tags);
@@ -48,9 +47,6 @@ class ArticleController extends Controller
     }
     public function show(Article $article)
     {
-        $article->description = GitDown::parseAndCache($article->description);
-        // dd($description);
-        // dd($article);
         return view('admin.articles.show', compact('article'));
     }
 
@@ -59,7 +55,6 @@ class ArticleController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         $data = $this->repository->with(['media', 'tag', 'category'])->findOrFail($id);
-        // dd($data);
         return view('admin.articles.edit', compact('data', 'categories', 'tags'));
     }
 
