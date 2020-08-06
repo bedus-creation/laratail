@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Aammui\LaravelTaggable\Traits\HasCategory;
 use Aammui\LaravelTaggable\Traits\HasTag;
 use Aammui\LaravelMedia\Traits\HasMedia;
+use Aammui\LaravelTaggable\Models\Tag;
+use Aammui\LaravelTaggable\Models\Category;
 
 class Article extends Model
 {
@@ -17,4 +19,18 @@ class Article extends Model
     {
         return $this->slug;
     }
+    public function getCoverAttribute()
+    {
+        return optional(optional($this->fromCollection('cover')->getMedia())->first())->link()
+            ?? "/assets/img/logo.png";
+    }
+
+    // public function catname()
+    // {
+    //     return $this->belongsTo(Category::class);
+    // }
+    // public function tagss()
+    // {
+    //     return $this->belongsTo(Tag::class);
+    // }
 }

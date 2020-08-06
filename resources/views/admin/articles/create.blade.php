@@ -2,6 +2,8 @@
 
 @section('css')
 <link rel="stylesheet" href="/assets/lib/select2/select2.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 @endsection
 
 @section('content')
@@ -29,27 +31,33 @@
             </div>
             <div class="mb-6">
                 <label class="block text-gray-600 font-light mb-2">Select Categories</label>
-                <select name="categories[]" id="categories" class="w-full border select"
-                    data-container-css-class="border border-gray-400 focus:border-green-500"
+                <select name="categories[]" id="categories" class="w-full border" multiple
+                    data-placeholder="Choose your categories"
+                    data-container-css-class="px-2 border border-gray-400 focus:border-green-500"
                     data-dropdown-css-class="bg-gray-100 border-green-500">
                     @foreach($categories as $item)
                     <option class="py-4" value="{{$item->name}}">{{$item->name}}</option>
                     @endforeach
                 </select>
             </div>
-            <div class="mb-2">
-                <label class="block text-gray-600 font-light mb-2">Description</label>
-                <textarea name="description"
-                    class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none  focus:border-green-500"
-                    rows="4"></textarea>
-            </div>
             <div class="mb-6">
-                <label class="block text-gray-600 font-light mb-2">Tags</label>
+                <label class="block text-gray-600 font-light mb-2">Select Tags</label>
                 <select name="tags" id="tags" class="w-full border" multiple data-placeholder="Choose your tags"
                     data-container-css-class="px-2 border border-gray-400 focus:border-green-500"
                     data-dropdown-css-class="bg-gray-100 border-green-500">
+                    @foreach($tags as $item)
+                    <option class="py-4" value="{{$item->name}}">{{$item->name}}</option>
+                    @endforeach
                 </select>
             </div>
+            <div class="mb-2">
+                <label class="block text-gray-600 font-light mb-2">Description</label>
+                {{-- <textarea name="description"
+                    class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none  focus:border-green-500"
+                    rows="4"></textarea> --}}
+                <editor></editor>
+            </div>
+
             <div class="mb-6">
                 <file-input name="image" />
             </div>
@@ -75,6 +83,7 @@
     $('#tags').select2({
         tags: true
     });
+
 </script>
 @stack('scripts')
 @endsection

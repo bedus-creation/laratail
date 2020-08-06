@@ -16,6 +16,7 @@
         padding: 10px 7px;
         border: 1px solid;
     }
+
 </style>
 @endsection
 
@@ -39,6 +40,7 @@
         <table id="example" class="border w-full display">
             <thead>
                 <tr>
+                    <th>id</th>
                     <th>Title</th>
                     <th>Created at</th>
                     <th class="text-right">Action</th>
@@ -47,10 +49,11 @@
             <tbody>
                 @foreach($articles as $item)
                 <tr>
+                    <td>{{$item->id}}</td>
                     <td>{{$item->title}}</td>
                     <td class="text-center">{{$item->created_at->format('Y-m-d')}}</td>
                     <td class="flex justify-end">
-                        <a href="#"
+                        <a href="{{route('articles.edit', $item->id)}}"
                             class="border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-gray-200 rounded flex justify-center items-center h-8 w-8 mr-1">
                             <span class="text-sm material-icons">
                                 edit
@@ -86,11 +89,13 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#example').DataTable();
     });
-    function setModalData(url){
+
+    function setModalData(url) {
         $('#deleteModal').attr('action', url);
     }
+
 </script>
 @endsection

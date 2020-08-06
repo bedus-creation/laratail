@@ -14,15 +14,15 @@ class CreateRolesTable extends Migration
     public function up()
     {
         Schema::create('roles', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->timestamps();
             $table->string('name')->unique();
         });
 
 
         Schema::create('role_user', function (Blueprint $table) {
-            $table->unsignedInteger('role_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('role_id');
+            $table->unsignedBigInteger('user_id');
 
             $table->unique(['role_id', 'user_id']);
 
