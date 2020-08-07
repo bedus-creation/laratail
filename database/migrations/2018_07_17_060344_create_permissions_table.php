@@ -14,14 +14,14 @@ class CreatePermissionsTable extends Migration
     public function up()
     {
         Schema::create('permissions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->timestamps();
             $table->string('name')->unique();
         });
 
         Schema::create('permission_user', function (Blueprint $table) {
-            $table->unsignedInteger('permission_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('permission_id');
+            $table->unsignedBigInteger('user_id');
 
             $table->unique(['permission_id', 'user_id']);
 

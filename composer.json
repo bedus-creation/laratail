@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
-        "aammui/laravel-media": "^0.1.1",
+        "aammui/laravel-media": "^0.6.4",
         "aammui/laravel-taggable": "^0.4.4",
         "aammui/role-permission": "dev-master",
         "fideloper/proxy": "^4.2",
