@@ -62,7 +62,7 @@
                 <file-input name="image" title="Click here to Update Image" />
             </div>
             <div class="flex justify-center mb-6 p-6 border">
-                <img class="w-full shadow-lg" src="{{$data->cover}}">
+                <img class="w-full rounded-lg shadow-lg" src="{{$data->cover}}">
             </div>
             <div class="pb-6">
                 <button type="submit"

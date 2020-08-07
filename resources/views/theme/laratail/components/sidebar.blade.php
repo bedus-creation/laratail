@@ -1,17 +1,17 @@
-<div class="sidebar w-1/5 fixed h-screen bg-gray-800 z-10">
-    <div class="image-menu flex items-center mx-2 py-6 overflow-hidden z-10 border-b border-gray-700">
+<div class="sidebar w-1/5 fixed h-screen bg-gray-800 z-10 overflow-y-scroll">
+    <div class="image-menu flex mx-2 items-center py-6 overflow-hidden z-10 border-b border-gray-700">
         <img class="menu-icon border-2 w-10 h-10 rounded-full"
             src="http://web2tailwind.com/assets/docs/master/image-01.jpg">
         <div class="menu-text text-gray-100 ml-4">WEB2TAILWIND</div>
     </div>
     <div x-data="{show: @php echo  request()->url()==url('admin')  ? 'true':'false' @endphp}"
-        class="flex mx-4 px-3 rounded py-3 mt-6 mb-3" :class="{'bg-red-500 hover:bg-red-500': show}">
+        class="flex mx-2 px-3 rounded py-3 mt-6 mb-3" :class="{'bg-red-500 hover:bg-red-500': show}">
         <a href="{{url('admin')}}" class="flex">
             <i class="material-icons fill-current text-gray-100">dashboard</i>
             <div class="menu-text text-gray-100 ml-4">Dashboard</div>
         </a>
     </div>
-    <div class="flex mx-4 mb-3">
+    <div class="flex mx-2 mb-3">
         <div href="#" x-data="{show: @php echo isCmsLink();  @endphp}" class="w-full flex flex-col cursor-pointer"
             @click="show=!show">
             <div class="w-full flex justify-between px-3 hover:bg-gray-700 rounded py-3"
@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="flex mx-4 mb-3">
+    <div class="flex mx-2 mb-3">
         <div href="#" x-data="{show: @php echo isUserLink();  @endphp}" class="w-full flex flex-col cursor-pointer"
             @click="show=!show">
             <div class="w-full flex justify-between px-3 hover:bg-gray-700 rounded py-3"

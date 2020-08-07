@@ -32,6 +32,11 @@
             padding-right: 0;
         }
 
+        .sidebar-mini .image-menu {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
         .sidebar-mini .menu-text {
             transform: translate3d(-25px, 0, 0);
             opacity: 0;
@@ -82,7 +87,6 @@
 
 <body style="font-family:Roboto">
     <div class="relative h-screen">
-        {{-- <vue-toastify :light-theme="true"></vue-toastify> --}}
         @include('theme.laratail.components.sidebar')
         <div class="main-content min-h-screen bg-gray-300 w-full lg:w-4/5 reltive float-right"
             :class="{'bg-gray-900 bg-opacity-75':nav}">

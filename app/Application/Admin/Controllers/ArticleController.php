@@ -58,14 +58,13 @@ class ArticleController extends Controller
 
     public function update(Request $request, $id)
     {
-
-        $model = $this->repository->findOrFail($id);
-        $model->update($request->all());
-        $model->addCategory($request->categories);
-        $model->addTag($request->tags);
+        $article = $this->repository->findOrFail($id);
+        $article->update($request->all());
+        $article->addCategory($request->categories);
+        $article->addTag($request->tags);
         if ($request->image) {
-            optional($model->fromCollection('cover')->getMedia()->first())->delete();
-            $model->toCollection('cover')
+            optional($article->fromCollection('cover')->getMedia()->first())->delete();
+            $article->toCollection('cover')
                 ->toDisk('public')
                 ->addMedia(request()->image);
         }

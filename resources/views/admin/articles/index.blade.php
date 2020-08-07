@@ -16,7 +16,6 @@
         padding: 10px 7px;
         border: 1px solid;
     }
-
 </style>
 @endsection
 
@@ -24,9 +23,9 @@
 <div class="container mx-auto my-10 px-6 md:px-12">
     <div class="flex justify-between items-center">
         <div class="flex-1">
-            <h3 class="text-gray-700 text-3xl font-semibold mb-2"></h3>
+            <h3 class="text-gray-700 text-3xl font-semibold mb-2">Articles</h3>
             <p class="font-light">
-                All the are liststed here. Edit <b>ArticleController</b> to customize further logics.
+                All the articles are liststed here. Edit <b>ArticleController</b> to customize further logics.
             </p>
         </div>
         <div class="w-48 text-right">
@@ -40,7 +39,7 @@
         <table id="example" class="border w-full display">
             <thead>
                 <tr>
-                    <th>id</th>
+                    <th>Id</th>
                     <th>Title</th>
                     <th>Created at</th>
                     <th class="text-right">Action</th>
@@ -49,7 +48,7 @@
             <tbody>
                 @foreach($articles as $item)
                 <tr>
-                    <td>{{$item->id}}</td>
+                    <td class="text-center">{{$item->id}}</td>
                     <td>{{$item->title}}</td>
                     <td class="text-center">{{$item->created_at->format('Y-m-d')}}</td>
                     <td class="flex justify-end">
@@ -72,6 +71,7 @@
             </tbody>
             <tfoot>
                 <tr>
+                    <th>Id</th>
                     <th>Name</th>
                     <th>Position</th>
                     <th>Start date</th>
