@@ -5,8 +5,8 @@ namespace Tests\Feature\Admin;
 use App\Domain\User\Enums\Role;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Validation\ValidationException;
-use Tests\Factories\ArticleFactory;
-use Tests\Factories\UserFactory;
+use Database\Factories\ArticleFactory;
+use Database\Factories\UserFactory;
 use Tests\TestCase;
 
 class ArticleTest extends TestCase
@@ -41,7 +41,7 @@ class ArticleTest extends TestCase
         $this->assertDatabaseHas('articles', $data);
     }
 
-    /** @test @dataProvider \Tests\Factories\ArticleFactory::InvalidDataProvider() */
+    /** @test @dataProvider \Database\Factories\ArticleFactory::InvalidDataProvider() */
     public function create_articles_fails_for_following_datas($key)
     {
         $data = ArticleFactory::new()->getFormData();

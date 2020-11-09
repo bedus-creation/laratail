@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Domain\User\Enums\Role;
 use App\User;
 use Illuminate\Support\Arr;
-use Tests\Factories\UserFactory;
+use Database\Factories\UserFactory;
 use Tests\TestCase;
 
 class UsersTest extends TestCase

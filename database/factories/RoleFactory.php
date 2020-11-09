@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use Aammui\LaravelTaggable\Models\Category;
+use App\Model;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class CategoryFactory extends Factory
+class RoleFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Category::class;
+    protected $model = Model::class;
 
     /**
      * Define the model's default state.
@@ -22,11 +21,15 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
-        $name = $this->faker->word;
-
         return [
-            'name' => $name,
-            'slug' => Str::slug($name, '-')
+            //
+        ];
+    }
+
+    public static function role200StatusRoutes()
+    {
+        return [
+            yield ['admin/roles', 200]
         ];
     }
 }

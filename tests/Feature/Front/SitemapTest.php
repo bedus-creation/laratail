@@ -3,7 +3,7 @@
 namespace Tests\Feature\Front;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\Factories\ArticleFactory;
+use Database\Factories\ArticleFactory;
 use Tests\TestCase;
 
 class SitemapTest extends TestCase

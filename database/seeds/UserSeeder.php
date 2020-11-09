@@ -1,9 +1,8 @@
 <?php
 
 use App\Domain\User\Enums\Role;
-use App\User;
 use Illuminate\Database\Seeder;
-use Tests\Factories\UserFactory;
+use Database\Factories\UserFactory;
 
 class UserSeeder extends Seeder
 {
