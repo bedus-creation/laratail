@@ -32,6 +32,13 @@ class UserFactory extends Factory
         ];
     }
 
+    /**
+     * Create an Instance of a model.
+     *
+     * @param array $attributes
+     * @param null|Model $parent
+     * @return mixed
+     */
     public function create($attributes = [], ?Model $parent = NULL)
     {
         $user = parent::create($attributes, $parent);
@@ -42,12 +49,23 @@ class UserFactory extends Factory
         return $user;
     }
 
+    /**
+     * Associate a Role to a User.
+     *
+     * @param [type] $role
+     * @return void
+     */
     public function withRole($role)
     {
         $this->role = $role;
         return $this;
     }
 
+    /**
+     * Return Success Form data
+     *
+     * @return array
+     */
     public function getFormData(): array
     {
         return [

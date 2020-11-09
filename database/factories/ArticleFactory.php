@@ -32,6 +32,12 @@ class ArticleFactory extends Factory
             'status' => $this->faker->randomElement(['Published', 'Draft'])
         ];
     }
+
+    /**
+     * Return success Form Data.
+     *
+     * @return array
+     */
     public function getFormData(): array
     {
         return [
@@ -42,6 +48,11 @@ class ArticleFactory extends Factory
         ];
     }
 
+    /**
+     * Return an InvalidDataProvider
+     *
+     * @return void
+     */
     public static function InvalidDataProvider()
     {
         return [
