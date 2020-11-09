@@ -1,16 +1,32 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
 use Aammui\LaravelTaggable\Models\Category;
-use App\Model;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Faker\Generator as Faker;
 
-$factory->define(Category::class, function (Faker $faker) {
-    $name = $faker->name;
-    return [
-        'name' => $name,
-        'slug' => Str::slug($name, '-')
-    ];
-});
+class CategoryFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Category::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        $name = $this->faker->word;
+
+        return [
+            'name' => $name,
+            'slug' => Str::slug($name, '-')
+        ];
+    }
+}

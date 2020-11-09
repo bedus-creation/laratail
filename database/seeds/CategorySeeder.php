@@ -1,6 +1,7 @@
 <?php
 
 use Aammui\LaravelTaggable\Models\Category;
+use Database\Factories\CategoryFactory;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -12,6 +13,6 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        factory(Category::class, 5)->create();
+        CategoryFactory::new()->times(5)->create();
     }
 }
