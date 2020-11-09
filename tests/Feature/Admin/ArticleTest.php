@@ -20,8 +20,7 @@ class ArticleTest extends TestCase
         $this->withoutExceptionHandling();
 
         // Setup Admin User
-        $admin = UserFactory::new()->create();
-        // $admin = UserFactory::new()->withRole(Role::ADMIN)->create();
+        $admin = UserFactory::new()->withRole(Role::ADMIN)->create();
         $this->be($admin);
     }
 
@@ -42,7 +41,7 @@ class ArticleTest extends TestCase
         $this->assertDatabaseHas('articles', $data);
     }
 
-    /** @test @dataProvider \Tests\Factories\ArticleFactory::InvalidDataProvider() */
+    /** @test @dataProvider \Database\Factories\ArticleFactory::InvalidDataProvider() */
     public function create_articles_fails_for_following_datas($key)
     {
         $data = ArticleFactory::new()->getFormData();

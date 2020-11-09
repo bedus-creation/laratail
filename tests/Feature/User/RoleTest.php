@@ -3,7 +3,7 @@
 namespace Tests\Feature\User;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\Factories\UserFactory;
+use Database\Factories\UserFactory;
 use App\Domain\User\Enums\Role;
 use Tests\TestCase;
 
@@ -25,7 +25,7 @@ class RoleTest extends TestCase
     /**
      * @test
      *
-     * @dataProvider \Tests\Factories\RoleFactory::role200StatusRoutes()
+     * @dataProvider \Database\Factories\RoleFactory::role200StatusRoutes()
      *
      * @return void
      */

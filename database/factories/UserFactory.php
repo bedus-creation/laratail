@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Domain\User\Enums\Role;
+use Illuminate\Database\Eloquent\Model;
 
 class UserFactory extends Factory
 {
@@ -31,15 +32,15 @@ class UserFactory extends Factory
         ];
     }
 
-    // public function create()
-    // {
-    //     $user = parent::create();
+    public function create($attributes = [], ?Model $parent = NULL)
+    {
+        $user = parent::create($attributes, $parent);
 
-    //     // add Role as well
-    //     $user->addRole($this->role);
+        // add Role as well
+        $user->addRole($this->role);
 
-    //     return $user;
-    // }
+        return $user;
+    }
 
     public function withRole($role)
     {
