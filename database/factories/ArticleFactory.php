@@ -1,38 +1,37 @@
 <?php
 
-namespace Tests\Factories;
+namespace Database\Factories;
 
 use App\Domain\CMS\Models\Article;
-use Christophrumpel\LaravelFactoriesReloaded\BaseFactory;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class ArticleFactory extends BaseFactory
+class ArticleFactory extends Factory
 {
-    protected string $modelClass = Article::class;
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Article::class;
 
-    public function create(array $extra = []): Article
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
     {
-        return parent::build($extra);
-    }
+        $title = $this->faker->sentence;
 
-    public function make(array $extra = []): Article
-    {
-        return parent::build($extra, 'make');
-    }
-
-    public function getDefaults(Faker $faker): array
-    {
-        $title = $faker->sentence;
         return [
             'title' => $title,
             'slug' => Str::slug($title),
-            'description' => $faker->paragraph(4),
-            'type' => $faker->randomElement(['Article']),
-            'status' => $faker->randomElement(['Published', 'Draft'])
+            'description' => $this->faker->paragraph(4),
+            'type' => $this->faker->randomElement(['Article']),
+            'status' => $this->faker->randomElement(['Published', 'Draft'])
         ];
     }
-
     public function getFormData(): array
     {
         return [

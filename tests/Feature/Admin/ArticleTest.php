@@ -5,8 +5,8 @@ namespace Tests\Feature\Admin;
 use App\Domain\User\Enums\Role;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Validation\ValidationException;
-use Tests\Factories\ArticleFactory;
-use Tests\Factories\UserFactory;
+use Database\Factories\ArticleFactory;
+use Database\Factories\UserFactory;
 use Tests\TestCase;
 
 class ArticleTest extends TestCase
@@ -20,7 +20,8 @@ class ArticleTest extends TestCase
         $this->withoutExceptionHandling();
 
         // Setup Admin User
-        $admin = UserFactory::new()->withRole(Role::ADMIN)->create();
+        $admin = UserFactory::new()->create();
+        // $admin = UserFactory::new()->withRole(Role::ADMIN)->create();
         $this->be($admin);
     }
 
